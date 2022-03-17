@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Jobportal</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+
+    <link href="{%static 'assets/img/favicon.png'%}" rel="icon">
+    <link href="{%static 'assets/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{%static 'assets/vendor/aos/aos.css'%}" rel="stylesheet">
+    <link href="{%static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{%static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+    <link href="{%static 'assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+    <link href="{%static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{%static 'assets/css/style.css'%}" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: eStartup - v4.7.1
+    * Template URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <div id="logo">
+            <h1><a href="{%url 'cust_jobs'%}"><span>e</span>Jobs</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
+        </div>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto active" href="{%url 'cust_jobs'%}">Home</a></li>
+                {%if request.user.role == 'employer' %}
+                <li><a class="nav-link scrollto" href="{%url 'listjobs'%}">Posted Jobs</a></li>
+                {%endif%}
+                {%if user.is_authenticated%}
+                    {%if request.user.role == 'employer' %}
+                <li><a class="nav-link scrollto" href="{%url 'postjobs'%}">Add new job</a></li>
+                    {%endif%}
+                {%endif%}
+
+                <li><a class="nav-link scrollto" href="#screenshots">Screenshots</a></li>
+                {%if request.user.role == 'candidate' %}
+                <li><a class="nav-link scrollto" href="{%url 'myapplications'%}">View my Applications</a></li>
+                {%else%}
+                <li><a class="nav-link scrollto" href="{%url 'viewapplications'%}">View Applications</a></li>
+                {%endif%}
+
+                {%if request.user.role != 'employer' %}
+                <li><a class="nav-link scrollto" href="{%url 'signin'%}">Sign in as employer</a></li>
+                {%endif%}
+                {%if user.is_authenticated%}
+                <li><a class="nav-link scrollto" href="{%url 'signout'%}">Logout {{request.user.name}}</a></li>
+                {%else%}
+                <li><a class="nav-link scrollto" href="{%url 'signup'%}">Register</a></li>
+                {%endif%}
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->
+
+
+<!--  &lt;!&ndash; ======= Hero Section ======= &ndash;&gt;-->
+<!--  <section id="hero">-->
+<!--    <div class="hero-container" data-aos="fade-in">-->
+<!--      <h1>Welcome to eStartup</h1>-->
+<!--      <h2>Elegant Bootstrap Template for Startups, Apps &amp; more...</h2>-->
+<!--      <img src="assets/img/hero-img.png" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">-->
+<!--      <a href="#get-started" class="btn-get-started scrollto">Get Started</a>-->
+<!--      <div class="btns">-->
+<!--        <a href="#"><i class="fa fa-apple fa-3x"></i> App Store</a>-->
+<!--        <a href="#"><i class="fa fa-play fa-3x"></i> Google Play</a>-->
+<!--        <a href="#"><i class="fa fa-windows fa-3x"></i> windows</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>&lt;!&ndash; End Hero Section &ndash;&gt;-->
+
+<div class="div mt-5 ">
+    <div class="row mt-5"></div>
+</div>
+
+<div class="container mt-5">
+    {%block body_block%}
+
+    {%endblock%}
+</div>
+
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="{%static 'assets/vendor/aos/aos.js'%}"></script>
+<script src="{%static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+<script src="{%static 'assets/vendor/glightbox/js/glightbox.min.js'%}"></script>
+<script src="{%static 'assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
+<script src="{%static 'assets/vendor/php-email-form/validate.js'%}"></script>
+
+<!-- Template Main JS File -->
+<script src="{%static 'assets/js/main.js'%}"></script>
+
+</body>
+
+</html>

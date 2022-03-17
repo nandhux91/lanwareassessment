@@ -1,0 +1,28 @@
+{%extends 'base_index.html'%}
+{%block body_block%}
+
+<div class="row mt-5">
+  <div class="col-3"></div>
+  <div class="col-6 m-5">
+    <div class="card" style="width: 30rem;">
+  <div class="card-body">
+    <h3 class="card-title">{{job.designation}}</h3>
+      <h4>{{job.company}}</h4>
+    <p class="card-text">Description: {{job.description}}</p>
+    <p class="card-text">Posted on: {{job.posted_date}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">location: {{job.location}}</li>
+    <li class="list-group-item">salary: {{job.salary}}</li>
+    <li class="list-group-item">Skills required: {{job.skills}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="{%url 'jobapply' job.id%}" class="card-link">Apply now</a>
+    <a href="{%url 'cust_jobs'%}" class="card-link">Back to home page</a>
+  </div>
+</div>
+  </div>
+  <div class="col-3"></div>
+</div>
+
+{%endblock%}
